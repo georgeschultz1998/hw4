@@ -9,6 +9,4 @@ public interface PlantService {
     List<Plant> searchPlantType(Integer query);
 
     List<Plant> searchZone(Integer query);
-
-    Plant createPlant(Plant plant);
 }

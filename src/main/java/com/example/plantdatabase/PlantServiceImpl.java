@@ -36,9 +36,4 @@ public class PlantServiceImpl implements PlantService {
        List<Plant> plants = plantRepository.searchZone(query);
        return plants;
     }
-
-    @Override
-    public Plant createPlant(Plant plant) {
-        return plantRepository.save(plant);
-    }
 }

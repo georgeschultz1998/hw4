@@ -2,7 +2,10 @@ package com.example.plantdatabase;
 
 import java.util.List;
 
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -10,10 +13,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/plants")
 
 class PlantController {
+    @Autowired
+    private PlantRepository repository;
     private PlantService plantService;
 
     public PlantController(PlantService plantService) {
         this.plantService = plantService;
+    }
+
+    @PostMapping("/plants")
+    Plant newPlant(@RequestBody Plant newPlant) {
+        return repository.save(newPlant);
     }
 
     @GetMapping("/searchComName")
@@ -34,11 +44,6 @@ class PlantController {
     @GetMapping("/searchZone")
     public ResponseEntity<List<Plant>> searchZone(@RequestParam("query") Integer query){
         return ResponseEntity.ok(plantService.searchZone(query));
-    }
-
-    @GetMapping("/creatPlant")
-    public Plant createPlant(@RequestBody Plant plant){
-        return plantService.createPlant(plant);
     }
 }
 

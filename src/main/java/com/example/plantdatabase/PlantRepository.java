@@ -22,4 +22,5 @@ public interface PlantRepository
     @Query("SELECT p FROM Plant p WHERE " +
             ":query >= p.minZone AND :query <= p.maxZone")
     List<Plant> searchZone(Integer query);
+
 }
