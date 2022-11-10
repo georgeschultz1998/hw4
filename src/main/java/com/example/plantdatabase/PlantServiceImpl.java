@@ -26,8 +26,14 @@ public class PlantServiceImpl implements PlantService {
     }
 
     @Override
-    public List<Plant> searchPlantType(String query) {
+    public List<Plant> searchPlantType(Integer query) {
        List<Plant> plants = plantRepository.searchPlantType(query);
+       return plants;
+    }
+
+    @Override
+    public List<Plant> searchZone(Integer query) {
+       List<Plant> plants = plantRepository.searchZone(query);
        return plants;
     }
 

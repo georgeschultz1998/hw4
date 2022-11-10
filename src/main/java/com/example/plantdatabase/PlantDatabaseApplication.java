@@ -9,5 +9,4 @@ public class PlantDatabaseApplication {
     public static void main(String[] args) {
         SpringApplication.run(PlantDatabaseApplication.class, args);
     }
-
 }

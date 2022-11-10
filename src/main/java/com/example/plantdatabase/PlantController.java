@@ -27,10 +27,16 @@ class PlantController {
     }
 
     @GetMapping("/searchPlantType")
-    public ResponseEntity<List<Plant>> searchPlantType(@RequestParam("query") String query){
+    public ResponseEntity<List<Plant>> searchPlantType(@RequestParam("query") Integer query){
         return ResponseEntity.ok(plantService.searchPlantType(query));
     }
 
+    @GetMapping("/searchZone")
+    public ResponseEntity<List<Plant>> searchZone(@RequestParam("query") Integer query){
+        return ResponseEntity.ok(plantService.searchZone(query));
+    }
+
+    @GetMapping("/creatPlant")
     public Plant createPlant(@RequestBody Plant plant){
         return plantService.createPlant(plant);
     }
